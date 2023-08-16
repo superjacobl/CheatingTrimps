@@ -1,18 +1,21 @@
 
-let turboTimeCurrent = Date.now();
+window.turbo = 1;
 
-(function() {
-    let lastTick = Date.now();
-    setInterval(function() {
-        const delta =
-        turboTimeCurrent +=
-    }, 1);
+function toggleTurbo() {
+    window.turbo *= 10;
 
-})();
-function getCurrentTime() {
+    if (window.turbo > 1000) {
+        window.turbo = 1;
+    }
 
-}
-
-function getTimeMultiplier() {
-
+    const $button = document.getElementById('turboButtonText');
+    if (window.turbo > 1) {
+        $button.parentElement.classList.remove('btn-no-turbo');
+        $button.parentElement.classList.add('btn-turbo');
+        $button.innerText = `Turbo x${window.turbo}`
+    } else {
+        $button.parentElement.classList.remove('btn-turbo');
+        $button.parentElement.classList.add('btn-no-turbo');
+        $button.innerText = `No Turbo`
+    }
 }
