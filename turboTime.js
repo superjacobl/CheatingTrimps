@@ -1,5 +1,15 @@
 
+let currentTimestamp = Date.now();
 window.turbo = 1;
+
+
+function getCurrentTimestamp() {
+    return currentTimestamp;
+}
+
+function getCurrentDate() {
+    return new Date(currentTimestamp);
+}
 
 function toggleTurbo() {
     window.turbo *= 10;
@@ -19,3 +29,11 @@ function toggleTurbo() {
         $button.innerText = `No Turbo`
     }
 }
+(function() {
+    let lastTurboTick = Date.now();
+    setInterval(() => {
+        let delta = Date.now() - lastTurboTick;
+        lastTurboTick += delta;
+        currentTimestamp += delta * window.turbo;
+    }, 1);
+})()
