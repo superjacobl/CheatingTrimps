@@ -275,7 +275,7 @@ var toReturn = {
 		freeTalentRespecs: 3,
 		genStateConfig: [],
 		uberNature: "",
-		//For the log notation base 
+		//For the log notation base
 		logNotBase: 10,
 		lowestShield: 100,
 		hemmTimer: 300,
@@ -334,7 +334,7 @@ var toReturn = {
 				specMod: "0",
 				perf: false,
 				extra: 0,
-				offset: 'd'	
+				offset: 'd'
 			},
 			p3: {
 				loot: 0,
@@ -364,7 +364,7 @@ var toReturn = {
 				specMod: "0",
 				perf: false,
 				extra: 0,
-				offset: 'd'	
+				offset: 'd'
 			}
 		},
 		mapPresets2: {
@@ -386,7 +386,7 @@ var toReturn = {
 				specMod: "0",
 				perf: false,
 				extra: 0,
-				offset: 'd'	
+				offset: 'd'
 			},
 			p3: {
 				loot: 0,
@@ -416,7 +416,7 @@ var toReturn = {
 				specMod: "0",
 				perf: false,
 				extra: 0,
-				offset: 'd'	
+				offset: 'd'
 			}
 		},
 		lootAvgs: {
@@ -727,7 +727,7 @@ var toReturn = {
 			name: "Golden Maps",
 			text: "+100% Map Loot",
 			cost: 20,
-			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
+			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?",
 			owned: false,
 			fire: function () {
 				game.unlocks.goldMaps = true;
@@ -771,7 +771,7 @@ var toReturn = {
 
 		},
 		heliumy: {
-			get name(){ 
+			get name(){
 				return (game.global.universe == 2) ? "Radonculous" : "Heliumy";
 			},
 			get text(){
@@ -797,7 +797,7 @@ var toReturn = {
 		voidMaps: {
 			name: "Void Maps",
 			text: "Upgrade your Void Map harvesting devices with the power of Bone! Each upgrade will cause 1 out of 100 Void Maps you find to be duplicated, guaranteed.",
-			confirmation: "You are about to purchase a level of Bone Void Maps, causing +1 out of 100 Void Maps you find to be duplicated. Is this what you wanted to do?", 
+			confirmation: "You are about to purchase a level of Bone Void Maps, causing +1 out of 100 Void Maps you find to be duplicated. Is this what you wanted to do?",
 			owned: 0,
 			tracker: 0,
 			checkDupe: function(prefix, suffix){
@@ -819,7 +819,7 @@ var toReturn = {
 		boosts: {
 			name: "Bone Shrine",
 			get text(){
-				return "Gain 1 Bone Charge every " + prettify(this.chargeTime(true)) + " hours, up to a max of 10 Bone Charges that persist through Portals. Consume 1 Bone Charge to gain " + prettify(this.timeGranted()) + " minutes of all primary resources as loot. Gain +10 mins per level, levels 5 and 10 reduce time to gain a charge by 30 minutes each." 
+				return "Gain 1 Bone Charge every " + prettify(this.chargeTime(true)) + " hours, up to a max of 10 Bone Charges that persist through Portals. Consume 1 Bone Charge to gain " + prettify(this.timeGranted()) + " minutes of all primary resources as loot. Gain +10 mins per level, levels 5 and 10 reduce time to gain a charge by 30 minutes each."
 			},
 			get confirmation(){
 				var text = "You are about to purchase a level of Bone Shrine, granting +10 minutes of primary resources as loot when worshipping the Shrine"
@@ -876,7 +876,7 @@ var toReturn = {
 			updateBtn: function(){
 				var elem = document.getElementById('boneShrineBtn');
 				if (this.owned <= 0) {
-					elem.style.display = 'none'; 
+					elem.style.display = 'none';
 					return;
 				}
 				elem.style.display = 'block';
@@ -928,7 +928,7 @@ var toReturn = {
 				if (!previewOnly && lastTooltipTitle == "Bone Shrine"){
 					document.getElementById('tipText').innerHTML = this.btnTooltip();
 				}
-				
+
 				return text;
 			},
 			owned: 0,
@@ -992,7 +992,7 @@ var toReturn = {
 						var win = nw.Window.get();
 						win.close();
 					} catch (error) {
-						
+
 					}
 				},
 				lockUnless: function() {return (typeof nw !== 'undefined')}
@@ -1119,7 +1119,7 @@ var toReturn = {
 							if (game.equipment[item].locked) continue;
 							if (item == "Shield") continue;
 							var elem = document.getElementById(item);
-							if (!elem) continue; 
+							if (!elem) continue;
 							swapClass('efficient', 'efficientNo', elem);
 						}
 					}
@@ -1385,7 +1385,7 @@ var toReturn = {
 								break;
 							}
 						}
-						if (nextZone == "") 
+						if (nextZone == "")
 							nextZone = (setZone.length) ? setZone[0].world : "one";
 					}
 					if (game.talents.maz.purchased){
@@ -1460,7 +1460,7 @@ var toReturn = {
 					var btnElem = document.getElementById('mazAddRowBtn');
 					for (var y = 0; y < this.getMaxSettings(); y++){
 						var elem = document.getElementById('mazWorld' + y);
-						if (elem && elem.value == "-1"){			
+						if (elem && elem.value == "-1"){
 							btnElem.style.display = 'inline-block';
 							return;
 						}
@@ -1502,7 +1502,7 @@ var toReturn = {
 					var setting = [];
 					var error = "";
 					var maxSettings = this.getMaxSettings();
-					loop1: 
+					loop1:
 					for (var x = 0; x < maxSettings; x++){
 						var world = document.getElementById('mazWorld' + x);
 						if (!world || world.value == "-1") {
@@ -2047,7 +2047,7 @@ var toReturn = {
 			icon: "grain"
 		},
 		herbalist: {
-			get description(){ 
+			get description(){
 				return "Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants +30% Attack at " + prettify(1e25) + " Food, or +300% at " + prettify(1e250) + ". At your current total of " + prettify(game.resources.food.owned) + " Food, <b>you " + ((this.purchased) ? "are gaining" : "would gain") + " +" + prettify((this.getBonus() - 1) * 100) + "% Trimp Attack</b>.";
 			},
 			getBonus: function(){
@@ -3589,7 +3589,7 @@ var toReturn = {
 				game.global.decayDone = true;
 				game.global.challengeActive = "";
 				game.challenges.Decay.abandon();
-				message("You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!", "Notices")	
+				message("You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!", "Notices")
 			},
 			completeAfterZone: 55,
 			unlockString: "reach Zone 55",
@@ -4050,7 +4050,7 @@ var toReturn = {
 				else{
 					manageStacks(null, null, true, 'frigidWarmthStacks', null, null, true);
 				}
-				
+
 			},
 			shatteredTooltip: function(){
 				return "Icy Shards from Shattered Trimps are slowing your gather rate! Trimp gather speed reduced by " + prettify((1 - this.getShatteredMult()) * 100) + "%.";
@@ -4102,7 +4102,7 @@ var toReturn = {
 				}
 				else message("You completed Frigid again, just for fun!", "Notices");
 				game.global.challengeActive = "";
-				
+
 			}
 		},
 		Experience: {
@@ -4150,7 +4150,7 @@ var toReturn = {
 					game.global.fluffyExp += xp;
 					Fluffy.getBestExpStat().value += xp;
 				}
-				
+
 				message("You have completed the Experience Challenge! Fluffy has gained an additional " + prettify(xp) + " Experience (" + prettify(this.heldExperience) + " earned, " + prettify(this.wonders * 5) + "% from " + this.wonders + " Wonder" + needAnS(this.wonders) + " + " + prettify(extraTiers * 50) + "% from extra BW tiers), and your World has been returned to normal.", "Notices");
 				this.wonders = 0;
 				this.heldExperience = 0;
@@ -4169,7 +4169,7 @@ var toReturn = {
 			},
 			getFinalXpMult: function(extraTiers){
 				var addBw = 0;
-				if (extraTiers && extraTiers > 0){					
+				if (extraTiers && extraTiers > 0){
 					addBw = (extraTiers * 0.5);
 				}
 				return (this.wonders * 0.05) + addBw;
@@ -4414,7 +4414,7 @@ var toReturn = {
 				reward *= 5;
 				message("You have completed the Bublé challenge! You're a hero among Trimps! You have been rewarded with " + prettify(reward) + " extra Radon, and you may repeat the challenge.", "Notices");
 				game.global.challengeActive = "";
-				addHelium(reward);			
+				addHelium(reward);
 			},
 			unlockString: "reach Zone 40",
 			completeAfterZone: 40
@@ -4491,7 +4491,7 @@ var toReturn = {
 				message("You have completed the Melt challenge! You have been rewarded with " + prettify(reward) + " Radon, and you may repeat the challenge.", "Notices");
 				game.global.challengeActive = "";
 				game.challenges.Melt.abandon();
-				addHelium(reward);			
+				addHelium(reward);
 			},
 			unlockString: "reach Zone 50",
 			completeAfterMap: "Melting Point",
@@ -4712,7 +4712,7 @@ var toReturn = {
 				return text;
 			},
 			getEnemyAttackMult: function(){
-				return (1 + (0.0005 * this.enemyStacks)); 
+				return (1 + (0.0005 * this.enemyStacks));
 			},
 			getTrimpHealthMult: function(){
 				return (1 + (0.001 * this.trimpStacks));
@@ -4838,7 +4838,7 @@ var toReturn = {
 					return "0 / 1";
 				}
 			},
-			completeQuest: function(){			
+			completeQuest: function(){
 				this.questComplete = true;
 				this.finishedQuests++;
 				if (this.finishedQuests == 80 && this.questsMade == 80) giveSingleAchieve("Level Up");
@@ -5007,7 +5007,7 @@ var toReturn = {
 				if (this.pauseAuto || game.global.archString == "") return "off";
 				var costMax = game.resources.science.owned;
 				costMax *= (game.global.archThresh / 100);
-				var nextCost = this.getNextCost();		
+				var nextCost = this.getNextCost();
 				var defs = this.getDefs();
 				var split = game.global.archString.split(',');
 				for (var x = 0; x < split.length; x++){
@@ -5854,7 +5854,7 @@ var toReturn = {
 				}
 				else message("You completed Pandemonium again, just for fun!", "Notices");
 				game.global.challengeActive = "";
-				
+
 			},
 			completed: false,
 			maxRuns: 25,
@@ -5951,7 +5951,7 @@ var toReturn = {
 				game.challenges.Hypothermia.abandon();
 				game.global.challengeActive = "";
 				if (this.embers >= 400) giveSingleAchieve("Burn Baby Burn");
-				
+
 			},
 			drawStacks: function(){
 				manageStacks('Bonfires', this.bonfires, true, 'hypoBonfireStacks', 'icomoon icon-fire', this.bonfireTooltip(), false);
@@ -6031,7 +6031,7 @@ var toReturn = {
 				if (this.shards < 0) this.shards = 0;
 				this.drawStacks();
 			},
-			notOneShot: function(){		
+			notOneShot: function(){
 				this.shards++;
 				if (this.shards >= 1000){
 					this.shards = 0;
@@ -6166,7 +6166,7 @@ var toReturn = {
 					if (damageDone >= 0.0001) stacks++;
 					if (damageDone >= 1) stacks++;
 					if (damageDone >= 100) stacks++;
-					if (!game.global.mapsActive) this.addStacks(stacks);				
+					if (!game.global.mapsActive) this.addStacks(stacks);
 					cell.failedUber = true;
 					cell.maxHealth /= this.uberMult;
 					if (cell.health > cell.maxHealth) cell.health = cell.maxHealth;
@@ -6225,7 +6225,7 @@ var toReturn = {
 				this.updateHealth(oldBonus, this.trimpHealthMult(true));
 				this.drawStacks();
 			},
-			updateHealth: function(oldBonus, newBonus){		
+			updateHealth: function(oldBonus, newBonus){
 				if (game.global.soldierHealth <= 0) return;
 				game.global.soldierHealthMax *= (newBonus / oldBonus);
 				if (game.global.soldierHealth > game.global.soldierHealthMax) game.global.soldierHealth = game.global.soldierHealthMax;
@@ -6261,7 +6261,7 @@ var toReturn = {
 			onNextWorld: function(){
 				this.updateHealth(this.desolationMult(game.global.world - 1), this.desolationMult(game.global.world));
 				this.drawStacks();
-				
+
 			},
 			clearedMap: function(level){
 				var above = (level - game.global.world);
@@ -6311,7 +6311,7 @@ var toReturn = {
 				}
 				else message("You completed Desolation again, just for fun!", "Notices");
 				game.global.challengeActive = "";
-				
+
 			},
 			completed: false,
 			maxRuns: 25,
@@ -6392,7 +6392,7 @@ var toReturn = {
 			hidden: false
 		},
 		heliumHour: {
-			get title(){ 
+			get title(){
 				var abv = (game.global.universe == 2) ? "Rn" : "He";
 				return abv + "/Hour this Run"
 			},
@@ -6416,7 +6416,7 @@ var toReturn = {
 			hidden: false
 		},
 		bestHeliumHourThisRun: {
-			get title(){ 
+			get title(){
 				var abv = (game.global.universe == 2) ? "Rn" : "He";
 				return "Best " + abv + "/Hour this Run"
 			},
@@ -6696,7 +6696,7 @@ var toReturn = {
 			hidden: false
 		},
 		fluffyExpHour: {
-			get title() { 
+			get title() {
 				return Fluffy.getName() + " Exp/Hr this Run"
 			},
 			display: function () {
@@ -7614,7 +7614,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 269);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -7643,7 +7643,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 369);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -7672,7 +7672,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 469);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -7701,7 +7701,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 569);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -7730,7 +7730,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 669);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -7759,7 +7759,7 @@ var toReturn = {
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 769);
-			}, 
+			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
@@ -8522,7 +8522,7 @@ var toReturn = {
 			//Renamed from magimp to randimp to prevent confusion with magnimp
 			displayName: "Randimp",
 			locked: 1,
-			attack: 1, 
+			attack: 1,
 			health: 1,
 			fast: false,
 			loot: function(level){
@@ -8864,7 +8864,7 @@ var toReturn = {
 				if (game.talents.scry2.purchased && game.global.canScryCache) amt *= 1.5;
 
 				//Void map helium modifiers above here
-				
+
 				if (game.global.runningChallengeSquared)
 					amt = 0;
 				else
@@ -8873,7 +8873,7 @@ var toReturn = {
 				game.stats.highestVoidMap.evaluate();
 				game.stats.totalVoidMaps.value += totalCleared;
 				if (game.global.challengeActive == "Frigid") game.challenges.Frigid.completedVoid(totalCleared);
-				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";				
+				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";
 				if (fromFluffy && fluffyCount == 1){
 					msg = "Before you even realized you were in a new Void Map, " + Fluffy.getName() + " snuck to the end and quickly stole all the loot.";
 					if (!game.global.runningChallengeSquared) msg += " You gained another " + prettify(amt) + " " + heliumOrRadon() + "!";
@@ -8895,7 +8895,7 @@ var toReturn = {
 				if (game.global.runningChallengeSquared) msg += ".";
 				else msg += " with an extra " + prettify(amt) + " " + heliumOrRadon() + "!";
 				message(msg, "Loot", heliumIcon(true), "helium", "helium");
-				
+
 			}
 		},
 		Shadimp: {
@@ -8981,7 +8981,7 @@ var toReturn = {
 			fast: false,
 			loot: function(level){
 				var amt = rewardResource("gems", 4, level, true);
-				message("You feel bad about slaying an incredibly rare Rainbimp, but at least he dropped " + prettify(amt) + " gems! Totally worth.", "Loot", "*diamond", null, 'secondary');	
+				message("You feel bad about slaying an incredibly rare Rainbimp, but at least he dropped " + prettify(amt) + " gems! Totally worth.", "Loot", "*diamond", null, 'secondary');
 			}
 		},
 		Lightimp: {
@@ -9083,7 +9083,7 @@ var toReturn = {
 				if (mapLevel >= game.global.world + 45) giveSingleAchieve("Bionic Sniper");
 				if (mapLevel >= game.global.world + 200) giveSingleAchieve("Bionic Nuker");
 				game.stats.highestBw.evaluate(mapLevel);
-				if (game.global.challengeActive == "Experience" && mapLevel >= 605 && game.global.world > 600) game.challenges.Experience.onComplete();	
+				if (game.global.challengeActive == "Experience" && mapLevel >= 605 && game.global.world > 600) game.challenges.Experience.onComplete();
 				if (game.global.challengeActive == "Experience") game.challenges.Experience.drawStacks();
 				checkAchieve("bionicTimed");
 				var amt1 = rewardResource("wood", 1, level, true);
@@ -9331,7 +9331,7 @@ var toReturn = {
 				createHeirloom(null, false, false, true);
 				var rarity = getHeirloomRarity(game.global.world, game.global.heirloomSeed, false, true);
 				rarity = game.heirlooms.rarityNames[rarity];
-				message("You have completed the Frozen Castle! The map has melted, but you managed to find a " + rarity + " Heirloom!", "Notices");			
+				message("You have completed the Frozen Castle! The map has melted, but you managed to find a " + rarity + " Heirloom!", "Notices");
 				if (game.global.challengeActive == "Hypothermia") game.challenges.Hypothermia.onComplete();
 			}
 		},
@@ -9442,7 +9442,7 @@ var toReturn = {
 				if (game.portal.Expansion.radLevel > 0) mult += (0.0001 * game.portal.Expansion.radLevel);
 				return mult;
 			},
-			expandingMult: function(){			
+			expandingMult: function(){
 				return Math.pow((this.expandingBase() + 1), game.unlocks.impCount.Tauntimp)
 			}
 		},
@@ -9882,7 +9882,7 @@ var toReturn = {
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function(){
-				var toAdd = (autoBattle.oneTimers.Smithriffic.owned) ? 2 : 1; 
+				var toAdd = (autoBattle.oneTimers.Smithriffic.owned) ? 2 : 1;
 				if (game.global.challengeActive == "Smithless"){
 					game.challenges.Smithless.ranMelting = true;
 					var text = (toAdd == 2) ? "These buildings are" : "This building is";
@@ -9890,7 +9890,7 @@ var toReturn = {
 					message(text, "Notices");
 					return;
 				}
-				
+
 				game.buildings.Smithy.owned += toAdd;
 				game.buildings.Smithy.purchased += toAdd;
 				for (var x = 0; x < toAdd; x++) game.buildings.Smithy.fire();
@@ -11888,7 +11888,7 @@ var toReturn = {
 						timeMax = Math.floor(extraMax + timeMax);
 					}
 					timeOnZone = Math.floor(timeOnZone / 600000);
-					
+
 					if (timeOnZone > timeMax) timeOnZone = timeMax;
 					else if (timeOnZone <= 0) return 1;
 				}

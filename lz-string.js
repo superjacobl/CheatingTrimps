@@ -23,7 +23,7 @@ if (typeof Map === "undefined") {
   var lzs_NewCompatMap = function() {
     this.data = {};
   }
-  
+
   lzs_NewCompatMap.prototype.get = function(key) {
     if (this.data.hasOwnProperty(key)) return this.data[key];
     return null;
@@ -37,7 +37,7 @@ if (typeof Map === "undefined") {
   lzs_NewCompatMap.prototype["delete"] = function(key) {
     delete this.data[key];
   }
-  
+
   lzs_GetMap = function() {
     return new lzs_NewCompatMap();
   };

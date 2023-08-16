@@ -198,7 +198,7 @@ var tutorial = {
             var selected = (x == this.viewingStep) ? ' selected' : '';
             text += "<div class='tutorialBookmark" + selected + "' onclick='tutorial.setViewStep(" + x + ")'>" + titles[x] + "</div>";
         }
-        
+
         elem.innerHTML = text;
     },
     getText: function(){
@@ -286,7 +286,7 @@ var tutorial = {
                 text += "Your choices from now on are up to you. There's a big World out there to explore, filled with thousands of Upgrade Books to research.<br/><br/>See if you can clear Zone 22 to earn a little more Helium for next run, then activate your Portal.";
                 goal += "Clear Zone 22, then Portal with a Challenge"
                 break;
-            
+
         }
         if (this.viewingStep != 0 && this.viewingStep != 15) text += "<br/><br/><i>Remember you can toggle the ADVISOR window by pressing V or clicking the gold star by the enemy's name.</i>";
         this.setWinSize();
@@ -548,7 +548,7 @@ var alchObj = {
             var potion = this.potions[x];
             if ((game.global.challengeActive == "Alchemy") != potion.challenge) continue;
             if (count % 5 == 0) text += "</tr><tr>";
-            
+
             var name = this.potionNames[x];
             var effectAmt = this.getPotionEffect(name);
             if (potion.inverseComp) effectAmt = 1 - effectAmt;
@@ -569,7 +569,7 @@ var alchObj = {
             }
             else
             text += "<td class='alchemyPopupCraft " + ((potion.enemyMult) ? 'brew' : 'potion') + "'><div class='alchemyPopupName'>" + name + "</div><span id='alchCraftBtn" + x + "' onclick='alchObj.craftPotion(\"" + name + "\")' class='btn btn-sm " + btnClass + "' style='width: 80%; margin-left: 10%;'>Craft</span><br/><span id='alchPotionEffect" + x + "' class='alchemyPotionEffect'>" + effectText + "</span><br/><span id='alchPotionCost" + x + "' class='alchemyCraftCost'>" + this.getPotionCost(name, true) + "</span><div class='alchemyAuto'>AutoCraft up to: <input value='" + this.potionAuto[x] + "' type='number' id='potionAuto" + x + "' /></div><span class='alchemyCraftDescription'>" + potion.description + "</span></td>";
-            
+
             count++;
         }
         text += "</tr></tbody></table><div id='alchBottomText'>";
@@ -784,7 +784,7 @@ var autoBattle = {
             var thisItem = this.items[item];
             if (!thisItem.owned) continue;
             data.items[item] = {};
-            var saveItem = data.items[item];    
+            var saveItem = data.items[item];
             saveItem.equipped = thisItem.equipped;
             saveItem.owned = thisItem.owned;
             saveItem.level = thisItem.level;
@@ -807,7 +807,7 @@ var autoBattle = {
             if (setting == "practice") continue;
             var thisSetting = this.settings[setting];
             if (thisSetting.enabled == thisSetting.default) continue;
-            data.settings[setting] = thisSetting.enabled; 
+            data.settings[setting] = thisSetting.enabled;
         }
         game.global.autoBattleData = data;
     },
@@ -851,7 +851,7 @@ var autoBattle = {
                 thisItem.hidden = false;
                 continue;
             }
-            
+
             thisItem.owned = saveItem.owned;
             thisItem.equipped = saveItem.equipped;
             thisItem.level = saveItem.level;
@@ -1034,7 +1034,7 @@ var autoBattle = {
             trimpAttackSpeed: function(){
                 return Math.pow(0.98, this.level);
             },
-            enemyAttackSpeed: function(){ 
+            enemyAttackSpeed: function(){
                 return 1.05 * Math.pow(1.02, (this.level - 1));
             },
             doStuff: function(){
@@ -1610,7 +1610,7 @@ var autoBattle = {
             },
             priceMod: 5,
             startPrice: 1000000
-        },        
+        },
         Big_Cleaver: {
             owned: false,
             equipped: false,
@@ -1778,7 +1778,7 @@ var autoBattle = {
             level: 1,
             zone: 148,
             description: function(){
-                return "Your Poisons tick +" + prettify((1 - this.tickMult()) * 100) + "% faster. +" + prettify(this.eachPoison()) + " Poison Damage for every percentage point of Bleed or Shock resist on the Enemy. Heal for " + prettify(this.healAmt()) + " per stack of Poison when your Poisons deal damage." 
+                return "Your Poisons tick +" + prettify((1 - this.tickMult()) * 100) + "% faster. +" + prettify(this.eachPoison()) + " Poison Damage for every percentage point of Bleed or Shock resist on the Enemy. Heal for " + prettify(this.healAmt()) + " per stack of Poison when your Poisons deal damage."
             },
             upgrade: "+2% Poison Tick Rate, +0.05 Poison Damage per Enemy Resist, +5 Heal on Poison Tick",
             tickMult: function(){
@@ -1809,7 +1809,7 @@ var autoBattle = {
             level: 1,
             zone: 150,
             description: function(){
-                return "Can create a Poison for 20 seconds. +" + prettify(this.poisonChance()) + "% Poison Chance, +" + prettify(this.poisonMod()) + " Poison Damage, +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health. Every third hit against an Enemy with Max Poison Stacks adds another Max Stack (up to +" + prettify(this.maxStacks()) + " Max Stacks)."; 
+                return "Can create a Poison for 20 seconds. +" + prettify(this.poisonChance()) + "% Poison Chance, +" + prettify(this.poisonMod()) + " Poison Damage, +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health. Every third hit against an Enemy with Max Poison Stacks adds another Max Stack (up to +" + prettify(this.maxStacks()) + " Max Stacks).";
             },
             upgrade: "+15% Poison Chance, +20 Poison Damage, +50 Defense, +500 Health, +2 Max Stacks",
             poisonChance: function(){
@@ -1869,7 +1869,7 @@ var autoBattle = {
                 }
             },
             doStuff: function(){
-                
+
                 autoBattle.trimp.attack += this.attack();
                 autoBattle.trimp.shockMod += this.shockMod();
                 autoBattle.trimp.defense += this.defense();
@@ -1956,7 +1956,7 @@ var autoBattle = {
             level: 1,
             zone: 170,
             description: function(){
-                return "+" + prettify(this.health()) + " Health, +" + prettify(this.defense()) + " Defense, +" + prettify(this.lifesteal() * 100) + "% Lifesteal. Huffy gains 0.5% increased Attack for each % of his missing Health. When Huffy is below 50% Health, take 30% less damage from all sources. " 
+                return "+" + prettify(this.health()) + " Health, +" + prettify(this.defense()) + " Defense, +" + prettify(this.lifesteal() * 100) + "% Lifesteal. Huffy gains 0.5% increased Attack for each % of his missing Health. When Huffy is below 50% Health, take 30% less damage from all sources. "
             },
             upgrade: "+1000 Health, +100 Defense, +25% Lifesteal",
             health: function(){
@@ -2112,7 +2112,7 @@ var autoBattle = {
                 autoBattle.trimp.maxHealth += this.health();
                 autoBattle.trimp.poisonMod += this.poisonMod();
                 autoBattle.trimp.poisonStack += this.poisonStack();
-                if (autoBattle.battleTime > autoBattle.trimp.lastGoo + 1000){     
+                if (autoBattle.battleTime > autoBattle.trimp.lastGoo + 1000){
                     if (autoBattle.trimp.lastGoo == -1) autoBattle.trimp.lastGoo = autoBattle.battleTime;
                     else autoBattle.trimp.lastGoo += 1000;
                     var dmg = autoBattle.trimp.gooStored * 0.1;
@@ -2178,7 +2178,7 @@ var autoBattle = {
         },
         //nullifium armor 225
         //Myco Mitts 230
-        Haunted_Harpoon: { 
+        Haunted_Harpoon: {
             owned: false,
             equipped: false,
             hidden: false,
@@ -2207,7 +2207,7 @@ var autoBattle = {
                     var pct = this.bleedTickMult() * (autoBattle.frameTime / 1000);
                     bdamage *= pct;
                     autoBattle.damageCreature(autoBattle.enemy, bdamage);
-                    
+
                 }
             },
             dustType: "shards",
@@ -2509,7 +2509,7 @@ var autoBattle = {
             dustType: "shards",
             startPrice: 1000,
             priceMod: 15
-            
+
         },
         Monkimp_Paw: { //after basket of souls
             owned: false,
@@ -2804,7 +2804,7 @@ var autoBattle = {
         this.trimp.shockChance = 0;
         this.trimp.shockMod = 0;
         this.trimp.shockTime = 0;
-        
+
         this.trimp.bleedChance = 0;
         this.trimp.bleedMod = 0;
         this.trimp.bleedTime = 0;
@@ -2827,7 +2827,7 @@ var autoBattle = {
         this.trimp.slowAura = 1;
 
         this.trimp.dustMult = 0;
-        
+
         this.checkItems();
 
         var trimpAttackTime = this.trimp.attackSpeed;
@@ -2912,7 +2912,7 @@ var autoBattle = {
         if (this.items.Blessed_Protector.equipped) this.items.Blessed_Protector.afterCheck(); //after anything that might hurt huffy
         if (this.items.Grounded_Crown.equipped) this.items.Grounded_Crown.afterCheck(); //just deals damage
         if (this.items.Haunted_Harpoon.equipped) this.items.Haunted_Harpoon.afterCheck(); //after anything that might increase the damage of huffy's bleeds
-        
+
         this.trimp.attackSpeed *= this.enemy.slowAura;
         if (this.trimp.attackSpeed <= 500){
             this.trimp.slowAura += ((500 - this.trimp.attackSpeed) / 1000)
@@ -3008,7 +3008,7 @@ var autoBattle = {
             if (attacker.bleed.time <= 0){
                 attacker.bleed.time = 0;
                 attacker.bleed.mod = 0;
-            } 
+            }
         }
         var bleedChance = attacker.bleedChance - defender.bleedResist;
         if (bleedChance > 0 && attacker.bleedMod > 0 && attacker.bleedTime > 0 && (defender.bleed.time <= 0 || this.items.Sundering_Scythe.equipped && defender.bleed.time <= 5000)){
@@ -3096,7 +3096,7 @@ var autoBattle = {
         this.enemy.health = this.enemy.baseHealth;
         if (this.items.Fearsome_Piercer.equipped) this.items.Fearsome_Piercer.onEnemy();
         if (this.items.Sacrificial_Shank.equipped) this.items.Sacrificial_Shank.onEnemy();
-        
+
         this.fight();
         if (resetStats) this.resetStats();
     },
@@ -3104,7 +3104,7 @@ var autoBattle = {
         this.profile = "";
         if (this.enemyLevel == 1) return;
         var seed = this.seed;
-        
+
         seed += (100 * this.enemyLevel);
         if (this.enemyLevel >= 51) seed += 3125; //Generated with Shold brain RNG
         var doubleResist = true;
@@ -3307,7 +3307,7 @@ var autoBattle = {
             amt *= mutMult;
         }
         if (this.items.Box_of_Spores.equipped && !this.enemy.hadBleed && this.enemy.poison.time > 0){
-            
+
             amt *= this.items.Box_of_Spores.dustMult();
         }
         if (game.global.fluffyExp2 >= 1466015503701000) amt *= 5; //don't even look at this line, just move on
@@ -3344,7 +3344,7 @@ var autoBattle = {
                     game.stats.saShards.value += shardAmt;
                 }
             }
-            
+
         }
         this.lootAvg.accumulator += amt;
         this.lootAvg.counter += this.battleTime;
@@ -3378,7 +3378,7 @@ var autoBattle = {
             this.popup(true, true);
             this.battleTime += this.frameTime;
         }
-    },    
+    },
     getMaxItems: function(){
         return this.maxItems + this.bonuses.Extra_Limbs.level;
     },
@@ -3494,14 +3494,14 @@ var autoBattle = {
     },
     upgrade: function(item){
         var itemObj = this.items[item];
-        if (!itemObj) return; 
+        if (!itemObj) return;
         var cost = this.upgradeCost(item);
         var currency = (this.items[item].dustType == "shards") ? this.shards : this.dust;
         if (currency < cost) return;
         this.saveLastAction("upgrade", item);
         if (this.items[item].dustType == "shards") this.shards -= cost;
         else this.dust -= cost;
-        
+
         itemObj.level++;
         this.popup(false, false, true);
     },
@@ -3662,7 +3662,7 @@ var autoBattle = {
         if (currency < price) return;
         this.saveLastAction('contract', item, price);
         if (this.items[item].dustType == "shards") this.shards -= price;
-        else this.dust -= price; 
+        else this.dust -= price;
         this.activeContract = item;
         this.popup(false, false, true);
     },
@@ -3692,7 +3692,7 @@ var autoBattle = {
         text += "<li>Lifesteal works on Bleed damage but not Poison damage. Lifesteal is based on final damage after Shock and Defense.</li>";
         text += "<li>Shock boosts Poison and Bleed damage as well as normal attack damage.</li>";
         text += "<li>Shocks and Bleeds cannot be applied while the Enemy already has that status effect. Poison can.</li>";
-        text += "<li>Resistance against an effect works by subtracting your current resist from the Enemy's chance to cause that effect. If the Enemy has a 50% Poison Chance and you have 25% Poison Resist, the Enemy will have an effective 25% Poison Chance.</li>";      
+        text += "<li>Resistance against an effect works by subtracting your current resist from the Enemy's chance to cause that effect. If the Enemy has a 50% Poison Chance and you have 25% Poison Resist, the Enemy will have an effective 25% Poison Chance.</li>";
         text += "<li>Enemy Affixes per level are based on a seed, but everyone has the same seed and sees the same affixes each level. Feel free to discuss strategy with others!</li>";
         text += "<li>Enemies gain +1 Affix every 5 Levels until 20, then gain +1 Affix every 10 Levels</li>";
         text += "<li>Huffy's minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.</li>";
@@ -3795,11 +3795,11 @@ var autoBattle = {
                 text += "</select>";
             }
             if (this.rings.level < 15) text += "Unlock another slot at Level 15!"
-            
+
         }
         text += "</div><div class='ringContainer' style='text-align: center; padding-top: 2em;'><span class='btn btn-lg autoItemUpgrade' onclick='autoBattle.levelRing()' style='width: 90%'>Level Up! (" + prettify(this.getRingLevelCost()) + " Shards)</span><br/>";
         text += "Every level increases stats of all mods on The Ring.<br/>Every 10 levels, gains a bigger boost in power!<br/>"
-        if (this.rings.level < 10) text += "Gains status chance starting at Level 10.<br/>" 
+        if (this.rings.level < 10) text += "Gains status chance starting at Level 10.<br/>"
         text += "</div>";
         return text;
     },
@@ -4017,7 +4017,7 @@ var autoBattle = {
                 statsText += "Taking " + prettify(fighterObj.shock.mod * 100) + "% more damage for " + shockTime + " sec.";
             }
             else statsText += "None";
-            
+
             statsText += "<br/>"
             var freePmod = 0;
             if (this.oneTimers.Master_of_Arms.owned) freePmod += 2;
@@ -4047,7 +4047,7 @@ var autoBattle = {
                 statsText += "</span>";
             }
             statsText += "<br/>";
-            
+
             if (fighterObj.shockChance > 0 && fighterObj.shockTime > 0 && fighterObj.shockMod > 0){
                 statsText += prettify(fighterObj.shockChance - opponentObj.shockResist) + "% chance to shock for " + prettify(fighterObj.shockTime / 1000) + " sec, causing enemies to take " + prettify(fighterObj.shockMod * 100) + "% more damage from all sources.";
             }
@@ -4085,8 +4085,8 @@ var autoBattle = {
                 }
                 statsText += "<br/>";
             }
-            statsText += "</div>"; 
-    
+            statsText += "</div>";
+
         }
         if (updateOnly && statsOnly){
             var elem = document.getElementById('autoBattleStatsText');
@@ -4098,7 +4098,7 @@ var autoBattle = {
             }
         }
         text += "<div id='autoBattleStatsText'>" + statsText + "</div>";
-        var itemsText = "Items (" + this.countEquippedItems() + "/" + this.getMaxItems() + " Equipped)"; 
+        var itemsText = "Items (" + this.countEquippedItems() + "/" + this.getMaxItems() + " Equipped)";
         text += "<div id='autoBattleMenuButtons'><span id='abItemsBtn' onclick='autoBattle.swapPopup(\"items\")' class='btn btn-lg autoItemUpgrade darkBorder'>" + itemsText + "</span><span onclick='autoBattle.swapPopup(\"bonuses\")' class='btn btn-lg colorNavy'>Bonuses</span><span onclick='autoBattle.swapPopup(\"contracts\")' class='btn btn-lg colorVoidy darkBorder'>Contracts</span><span onclick='autoBattle.swapPopup(\"hidden\")' class='btn btn-lg autoColorOrange darkBorder'>Hidden Items</span><span class='btn btn-lg autoItemHide darkBorder' onclick='autoBattle.toggleHideMode()'>Hide Items</span>";
         text += "<span id='autoBattleRingBtn' onclick='autoBattle.swapPopup(\"rings\")' style='display: " + ((this.oneTimers.The_Ring.owned) ? 'inline-block' : 'none') + "' class='btn btn-lg autoColorTeal active darkBorder'>The Ring</span>";
         text += "<span onclick='autoBattle.swapPopup(\"other\")' class='btn btn-lg autoColorGrey active darkBorder'>Misc</span></div>";
@@ -4133,15 +4133,15 @@ var autoBattle = {
                     line2 = "";
                     count = 1;
                 }
-                
-                var equipClass = (itemObj.equipped) ? "Equipped" : "NotEquipped"; 
+
+                var equipClass = (itemObj.equipped) ? "Equipped" : "NotEquipped";
                 var upgradeCost = prettify(this.upgradeCost(item)) + " " + this.getCurrencyName(item);
                 line1 += "<div class='autoItem autoItem" + equipClass + "' onclick='autoBattle.equip(\"" + item + "\")' onmouseover='autoBattle.hoverItem(\"" + item + "\")'>" + this.cleanName(item) + ((itemObj.noUpgrade) ? "" : " Lv " + itemObj.level) + "</div>";
                 if (this.popupMode == "items"){
                     if (this.hideMode)
                         line2 += "<div class='autoItem autoItemHide' onclick='autoBattle.hide(\"" + item + "\")'>Hide</div>";
                     else if (itemObj.noUpgrade) line2 += "<div class='autoItem autoColorGrey'>Unupgradable</div>"
-                    else 
+                    else
                         line2 += "<div class='autoItem autoItemUpgrade' onclick='autoBattle.upgrade(\"" + item + "\")' onmouseover='autoBattle.hoverItem(\"" + item + "\", true)'>Upgrade (" + upgradeCost + ")</div>";
                 }
                 else if (this.popupMode == "hidden")
@@ -4279,7 +4279,7 @@ var autoBattle = {
         }
         else if (this.popupMode == "rings"){
             text += this.getRingUi();
-        }        
+        }
         if (itemsOnly && itemsElem){
             itemsElem.innerHTML = text;
         }
@@ -4297,7 +4297,7 @@ var autoBattle = {
             }
         }
     }
-}  
+}
 
 window.addEventListener('resize', function() {
 if (!u2Mutations.open) return;
@@ -4672,7 +4672,7 @@ var u2Mutations = {
         if (!this.checkRequirements(what)) return;
         obj.purchased = true;
         game.global.mutatedSeeds -= cost;
-        game.global.mutatedSeedsSpent += cost; 
+        game.global.mutatedSeedsSpent += cost;
         this.purchaseCount++;
         this.openTree();
         this.setAlert();
@@ -4751,21 +4751,21 @@ var u2Mutations = {
             var x = e.clientX;
             var y = e.clientY;
             if(u2Mutations.lastX == null) {
-                u2Mutations.lastX = x; 
-                u2Mutations.lastY = y; 
+                u2Mutations.lastX = x;
+                u2Mutations.lastY = y;
                 return;
             }
             u2Mutations.translateX += x - u2Mutations.lastX;
             u2Mutations.translateY += y - u2Mutations.lastY;
             u2Mutations.update();
-            u2Mutations.lastX = x; 
+            u2Mutations.lastX = x;
             u2Mutations.lastY = y;
         }
     },
     update: function() {
 		var transform = "translate(" + this.translateX + "px, " + this.translateY + "px) scale(" + (this.scale) + ")";
         document.getElementById('mutTree').style.transform = transform;
-		this.curTransform = transform; 
+		this.curTransform = transform;
     },
     reset: function() {
         if(document.getElementById('mutTree').style.transform === '') {
@@ -4786,7 +4786,7 @@ var u2Mutations = {
         if(this.scale < 0.5) this.scale = 0.5;
         var transform = "translate(" + this.translateX + "px, " + this.translateY + "px) scale(" + (this.scale) + ")";
         document.getElementById('mutTree').style.transform = transform;
-		this.curTransform = transform; 
+		this.curTransform = transform;
     },
     openTree: function(){
         var scale = Math.min(window.innerWidth, window.innerHeight) / 32;
@@ -4804,7 +4804,7 @@ var u2Mutations = {
         var text = "<div style='position: relative; z-index:2;'><div style='position: absolute; top: 2%; left: 2%; display: inline-block;'><span style='font-size: 1.1em; margin-left: 0.25em;' class='btn btn-lg btn-info' onclick='u2Mutations.showNames()' id='u2MutShowNameBtn'>" + ((game.global.showU2MutNames) ? "Hide Names" : "Show Names") + "</span><br/><span style='font-size: 1.1em; margin-top: 0.25em;' id='swapToMasteryBtn' class='btn btn-lg btn-success' onclick='u2Mutations.swapTab(false)'>Show Masteries" + this.getMasteryAlert() + "</span></div><div style='background-color: black'>Seeds Available: " + prettify(game.global.mutatedSeeds) + "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;" + costText + "</div><span id='mutTreeCloseBtn' class='icomoon icon-close' onclick='u2Mutations.closeTree()'></span></div><div id='mutTree'" + curTransform + ">";
         text += "<div id='mutRing1' style='width: " + (40.8*scale) + "px; height: " + (33.0*scale) + "px; top: " + (-16.5*scale) + "px; left: " + (-20.4*scale) + "px;'></div>"
         for (var item in this.tree){
-            
+
             var coords = this.tree[item].pos;
             var itemObj = this.tree[item];
             var bgColor = 'available';
@@ -4829,7 +4829,7 @@ var u2Mutations = {
                 var line = '<div class="mutLine mutLine' + color + '" style="left: ' + left + 'px; top: ' + top + 'px; height: ' + (mutLineWidth*scale) + 'px; width: ' + width + 'px; transform: rotate(' + angle + 'deg);">&nbsp;</div>'
                 text += line;
 
-                
+
                 var arrowMidpointX = (thisConnect[0] - (distanceX/2))*scale + (boxScale/2) - (arrowLength*scale/2);
                 var arrowMidpointY = (thisConnect[1] - (distanceY/2))*scale + (boxScale/2) - (arrowLength*scale/2);
 
@@ -4930,7 +4930,7 @@ var u2Mutations = {
             baseAttack = game.global.getEnemyAttack(cell.cs, cell.name);
         }
         else baseAttack = game.global.getEnemyAttack(cell.level, cell.name);
-        if (cell.cc) addAttack = this.types.Compression.attack(cell, baseAttack);  
+        if (cell.cc) addAttack = this.types.Compression.attack(cell, baseAttack);
         if (cell.u2Mutation.indexOf('NVA') != -1) baseAttack *= 0.01;
         else if (cell.u2Mutation.indexOf('NVX') != -1) baseAttack *= 10;
         baseAttack += addAttack;
@@ -5006,14 +5006,14 @@ var u2Mutations = {
                 g: 51,
                 b: 153
             }
-    
+
         }
         if (thisMutation.length == 1){
             var useColor = colors[thisMutation[0]];
             return "rgb(" + useColor.r + ", " + useColor.g + ", " + useColor.b + ")";
         }
         var r = 0;
-        var g = 0; 
+        var g = 0;
         var b = 0;
         for (var x = 0; x < thisMutation.length; x++){
             var useColor = colors[thisMutation[x]];
@@ -5051,7 +5051,7 @@ var u2Mutations = {
             else if (isPre) target = "pre";
             else if (isPost) target = "post";
             else if (isMid) target = "mid";
-            
+
             text += this.types[name][target];
         }
         return text;
@@ -5130,7 +5130,7 @@ var u2Mutations = {
                     var start = (startR * 10) + startC;
                     currentArray[start].u2Mutation.push('NVA');
                     var cells = [];
-                    for (var x = 1; x < size + 1; x++){				
+                    for (var x = 1; x < size + 1; x++){
                         cells.push(start + (1 * x));
                         cells.push(start - (1 * x));
                         cells.push(start + (10 * x));

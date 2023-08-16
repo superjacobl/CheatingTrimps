@@ -611,7 +611,7 @@ var playerSpire = {
                 }
                 outputText += "Sold " + this.layout[cell].trap.name + " at " + col + ' ' + row + ". ";
                 this.sellTrap(cell);
-                
+
             }
             output.innerHTML = outputText;
             this.selectScreenReadInput();
@@ -727,7 +727,7 @@ var playerSpire = {
         }
         output.innerHTML = split[0] + " is an unknown command.";
         this.selectScreenReadInput();
-        
+
     },
     drawInfo: function(){
         if (!this.popupOpen) return;
@@ -750,12 +750,12 @@ var playerSpire = {
         infoHtml += "<div onclick='playerSpire.shrink()' id='shrinkSpireBox' class='spireControlBox'>Shrink Window</div>";
         infoHtml += "<div onclick='playerSpire.settingsTooltip()' id='spireSettingsBox' class='spireControlBox'>Settings</div>"
         infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.<br/><br/>" + ((this.paused) ? "" : "<b>Protip:</b> Pause your Spire before selling your defenses if you want to avoid leaking!") + "\", \"playerSpire.resetTraps()\", \"Sell All?\")' class='spireControlBox'>Sell All</div>";
-        infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>Unpause" : "'>Pause Spire") + "</div>";      
+        infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>Unpause" : "'>Pause Spire") + "</div>";
         infoHtml += "<div class='spireControlBoxDbl'><div onclick='playerSpire.presetTooltip(1)'>Layout 1</div><div onclick='playerSpire.presetTooltip(2)'>Layout 2</div></div>"
         infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>Shift Up</div>";
         infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>Shift Down</div>";
 
-        
+
         // infoHtml += "<div onclick='playerSpire.resetUpgrades()' class='spireControlBox'>Reset Upgrades</div>";
         // infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to reset EVERYTHING? This includes Floors, upgrades, and runestones!\", \"playerSpire.init()\", \"Reset Spire?\")' class='spireControlBox'>Reset EVERYTHING</div>";
         // infoHtml += "<div onclick='playerSpire.clearEnemies()' class='spireControlBox'>Clear Enemies</div>";
@@ -916,7 +916,7 @@ var playerSpire = {
             var costPct = (cost / this.runestones) * 100;
             if (costPct < 0.01) costPct = 0;
             costText += " (" + prettify(costPct) + "%)";
-        } 
+        }
         costText += "</span>";
         tooltip(which + trapText, 'customText', event, playerSpireTraps[which].description, costText);
         tooltipUpdateFunction = function(){playerSpire.trapTooltip(which, event)};
@@ -935,7 +935,7 @@ var playerSpire = {
             var costPct = (upgrade.cost / this.runestones) * 100;
             if (costPct < 0.01) costPct = 0;
             cost += " (" + prettify(costPct) + "%)";
-        } 
+        }
         cost += "</span>";
         if (upgrade.unlockAt != -1)
             cost += ", <span style='color: " + ((game.global.highestLevelCleared + 1 >= upgrade.unlockAt) ? "green" : "red") + "'>Reach Z" + upgrade.unlockAt + "</span>";
@@ -1030,7 +1030,7 @@ var playerSpire = {
                     this.tutorialStep++;
                 }
                 break;
-            case 7: 
+            case 7:
                 if (this.rowsAllowed >= 13){
                     this.tutorialStep++;
                 }
@@ -1225,7 +1225,7 @@ var playerSpire = {
         this.updateEnemyCount();
         this.escapees++;
         this.killedSinceLeak = 0;
-        
+
         if (enemy.toxicity > 0 && playerSpireTraps.Poison.level >= 6){
             var toxReward = enemy.toxicity * 0.1;
             toxReward = calcHeirloomBonus("Core", "runestones", toxReward);
@@ -1273,7 +1273,7 @@ var playerSpire = {
             this.difficulty += ((this.difficultyHidden - this.difficulty) / 10);
 
         if (this.difficulty > this.peakThreat) this.peakThreat = this.difficulty;
-        
+
         this.updateKills();
         if (!catchingUp && this.settings.fctRs)
             TDFloatingText.spawnFloatingText(location, "black", -0.1, 7, "+ " + prettify(reward) + " Rs");
@@ -1333,7 +1333,7 @@ var playerSpire = {
         }
         if (enemy.health <= 0){
             this.killedEnemy(enemy, 0, 0, catchingUp);
-        }   
+        }
         if (!catchingUp){
             this.updateEnemyCount();
             this.drawEnemy(0);
@@ -1546,10 +1546,10 @@ var playerSpire = {
         return amt;
     },
     getRowFromCell: function(cell){
-        return Math.floor(cell / 5); 
+        return Math.floor(cell / 5);
     },
     getColFromCell: function(cell){
-        return cell % 5;  
+        return cell % 5;
     },
     moveEnemies: function(catchingUp){
         if (this.sealed) return;
@@ -1727,7 +1727,7 @@ var playerSpireTraps = {
         icon: "fire",
         upgrades: [
             {   //level 2
-                description: "All Fire Traps gain <b>10x</b> damage.", //500 
+                description: "All Fire Traps gain <b>10x</b> damage.", //500
                 unlockAt: 250,
                 cost: 5e4
             },
@@ -1791,7 +1791,7 @@ var playerSpireTraps = {
             if (this.level >= 7){
                 var val = (this.level >= 9) ? "50%" : "20%";
                 desc += "<br/><br/>All Fire Traps grant " + val + " extra Runestones when they get the killing blow on an enemy.";
-            } 
+            }
             desc += "<br/><br/>(Hotkey 1)";
             return desc;
         },
@@ -2126,7 +2126,7 @@ var playerSpireTraps = {
         icon: "gavel",
         upgrades: [
             {   //level 2
-                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //500 
+                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //500
                 unlockAt: -1,
                 cost: 1e6
             },
@@ -2186,7 +2186,7 @@ var playerSpireTraps = {
         icon: "funnel",
         upgrades: [
             {   //level 2
-                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //500 
+                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //500
                 unlockAt: -1,
                 cost: 2e6
             },
@@ -2239,7 +2239,7 @@ var playerSpireTraps = {
         icon: "book2",
         upgrades: [
             {   //level 2
-                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp earned from all sources.";}, //500 
+                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp earned from all sources.";}, //500
                 unlockAt: -1,
                 cost: 3e6
             },
@@ -2301,14 +2301,14 @@ var TDFloatingText = (function(floatingCombatText) {
     var frameTime = 30;
     var elements = [];
     var interval = null;
- 
+
     setFrameTime(frameTime);
     function setFrameTime(ft) {
         clearInterval(interval);
         interval = setInterval(update, ft);
         frameTime = ft;
     }
-   
+
     function spawnFloatingText(cellNumber, color, speed, distance, text) {
         if (playerSpire.wasCatchingUp) return;
         var maxRows = 20;
@@ -2317,20 +2317,20 @@ var TDFloatingText = (function(floatingCombatText) {
         var col = (cellNumber % 5);
         var elem = document.createElement("div");
         elem.className = "playerSpireCell floatingCombatText";
-       
+
         elem.textContent = text;
         elem.style.position = "absolute";
         elem.style.color = color;
         elem.style.border = "none";
-       
+
         var cellWidth = 1 / maxCols;
         var cellHeight = 1 / maxRows;
-       
+
         var x = cellWidth * col;
         var y = cellHeight * row;
 
         if (playerSpire.settings.fctStatic){
-            if (color == "black"){ 
+            if (color == "black"){
                 y += 0.02;
                 distance = 5;
             }
@@ -2350,12 +2350,12 @@ var TDFloatingText = (function(floatingCombatText) {
             }
             y -= (0.001 * row);
         }
-               
+
         elem.style.left = (x * 100) + "%";
         elem.style.top = (y * 100) + "%";
-       
+
         floatingCombatText.appendChild(elem);
-       
+
         elements.push({
             elem: elem,
             row: row,
@@ -2365,13 +2365,13 @@ var TDFloatingText = (function(floatingCombatText) {
             posY: 0
         });
     }
-   
+
     function update() {
         var i;
         for(i = 0; i < elements.length; i++) {
             var element = elements[i];
             var speed = element.speed * (frameTime / 20);
-           
+
             element.distanceLeft -= Math.abs(speed);
             if(element.distanceLeft <= 0) {
                 elements.splice(i, 1);
@@ -2385,7 +2385,7 @@ var TDFloatingText = (function(floatingCombatText) {
             }
         }
     }
-   
+
     return {
         spawnFloatingText: spawnFloatingText,
         update: update,
