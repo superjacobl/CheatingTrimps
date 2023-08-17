@@ -14,7 +14,7 @@ function getCurrentDate() {
 function toggleTurbo() {
     window.turbo *= 10;
 
-    if (window.turbo > 1000) {
+    if (window.turbo > 100) {
         window.turbo = 1;
     }
 
