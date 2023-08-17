@@ -1414,13 +1414,10 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "PlayFab Login"){
 		if (typeof nw !== 'undefined') return;
-		var tipHtml = getPlayFabLoginHTML();
-		tooltipText = tipHtml[0];
-		costText = tipHtml[1];
+		tooltipText = "PLayFab login is disabled in this mod.";
+		costText = "<div class='maxCenter'><div class='btn btn-danger' onclick='cancelTooltip()'>Close</div></div>";
 		game.global.lockTooltip = true;
-		elem.style.top = "15%";
-		elem.style.left = "25%";
-		swapClass('tooltipExtra', 'tooltipExtraLg', elem);
+		elem.style.top = "40%";
 		noExtraCheck = true;
 	}
 	if (what == "PlayFab Conflict"){

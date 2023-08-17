@@ -972,25 +972,12 @@ var toReturn = {
 			},
 			usePlayFab: {
 				enabled: 0,
-				titles: [],
-				onToggle: function() {
-
-				}
-			},
-			/*
-			usePlayFab: {
-				enabled: 0,
 				extraTags: "popular general cloud",
 				description: "When the game saves, every 30 minutes also back up a copy online with PlayFab. While using this setting, you will be asked if you want to download your online save if it is ever ahead of the version on your computer. You can also manually import your save from PlayFab through the Import menu.",
 				titles: ["Not Saving Online", "Saving with PlayFab"],
-				onToggle: function () {
-					return;
-					var indicatorElem = document.getElementById("playFabIndicator");
-					if (this.enabled == 1) indicatorElem.className = "icomoon icon-wifi iconStateGood";
-					else indicatorElem.className = "";
-				},
+				onToggle: function () {},
 				lockUnless: function (){return (typeof nw === 'undefined')}
-			},*/
+			},
 			saveAndExit: {
 				enabled: 0,
 				extraTags: "general",
