@@ -315,13 +315,20 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Welcome"){
-		tooltipText = "Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.<br/><br/><b>Chrome and Firefox are currently the only fully supported browsers.</b><br/><br/>";
-		if (document.getElementById('boneBtn') !== null){
-			tooltipText += "<b style='color: red'>Notice: Did you expect to see your save here?</b><br/>If this is your first time playing since November 13th 2017, check <a target='_blank' href='http://trimps.github.io'>http://trimps.github.io</a> (make sure you go to http, not https), and see if it's there. For more information, see <a target='_blank' href='http://www.kongregate.com/forums/11406-general-discussion/topics/941201-if-your-save-is-missing-after-november-13th-click-here?page=1#posts-11719541'>This Forum Thread</a>.<br/><br/>";
-		}
-		tooltipText += "<b>Would you like to enable online saving before you start?</b>";
+		tooltipText = `<p>
+			<strong>Turbo Trimps</strong>
+			is an unofficial mod to the excellent
+			<a href="https://trimps.github.io/" title="Open the official Trimps page in a new window" target="_blank">Trimps</a>.
+			It adds a new <strong>Turbo</strong> option in the bottom bar, next to Settings. List of changes and quirks:
+		</p>`;
+		tooltipText += `<ul>
+			<li>Turbo can be set to No Turbo, x10 and x100.</li>
+			<li>It speeds up every aspect of the game by making the game thing the time is just passing faster.</li>
+			<li>You can import save from base game and import Turbo save into base game, but some time related things will behave wonky until you portal.</li>
+			<li>PlayFab login is disabled.</li>
+		</ul>`
 		game.global.lockTooltip = true;
-		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip(); toggleSetting(\"usePlayFab\");'>Enable Online Saving</div><div class='btn btn-danger' onclick='cancelTooltip()'>Don't Enable</div></div>";
+		costText = "<div class='maxCenter'><div class='btn btn-danger' onclick='cancelTooltip()'>Close</div></div>";
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
