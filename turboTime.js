@@ -2,7 +2,7 @@
 window.turbo = 1;
 
 function getCurrentTimestamp() {
-    if (game) {
+    if (window.game) {
         return Date.now() + game.global.turboCounter;
     } else {
         return Date.now();
@@ -36,7 +36,7 @@ function toggleTurbo() {
     setInterval(() => {
         let delta = Date.now() - lastTurboTick;
         lastTurboTick += delta;
-        if (game) {
+        if (window.game) {
             game.global.turboCounter += delta * (window.turbo - 1);
         }
     }, 1);
