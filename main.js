@@ -14254,7 +14254,7 @@ function updateDailyStacks(what){
 function updateDailyClock(justTime){
 	var elem = document.getElementById('dailyResetTimer');
 	if (elem == null && !justTime) return;
-	var now = getCurrentDate();
+	var now = new Date();
 	var secondsRemaining = 59 - now.getUTCSeconds();
 	var minutesRemaining = 59 - now.getUTCMinutes();
 	var hoursRemaining = 23 - now.getUTCHours();
@@ -14267,7 +14267,7 @@ function updateDailyClock(justTime){
 }
 
 function getDailyTimeString(add, makePretty, getDayOfWeek){
-	var today = getCurrentDate();
+	var today = new Date();
 	if (!add) add = 0;
 	today.setUTCDate(today.getUTCDate() + add + lastAdd);
 	if (getDayOfWeek) return today.getUTCDay();
