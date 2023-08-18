@@ -3708,6 +3708,9 @@ function activatePortal(){
 			return;
 			}
 	}
+
+	game.global.turboCounter = 0;
+
 	if (game.global.challengeActive == "Daily"){
 		abandonDaily();
 	}
