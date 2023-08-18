@@ -14,9 +14,16 @@ function getCurrentDate() {
 }
 
 function toggleTurbo() {
-    window.turbo *= 10;
+    if (window.turbo === 1) {
+        window.turbo = 10;
 
-    if (window.turbo > 100) {
+    } else if (window.turbo === 10) {
+        window.turbo = 60;
+
+    } else if (window.turbo === 60) {
+        window.turbo = 100;
+
+    } else {
         window.turbo = 1;
     }
 

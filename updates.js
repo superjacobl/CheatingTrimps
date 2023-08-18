@@ -322,7 +322,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			It adds a new <strong>Turbo</strong> option in the bottom bar, next to Settings. List of changes and quirks:
 		</p>`;
 		tooltipText += `<ul>
-			<li>Turbo can be set to No Turbo, x10 and x100.</li>
+			<li>Turbo can be set to No Turbo, x10, x60 and x100.</li>
 			<li>It speeds up every aspect of the game by making the game thing the time is just passing faster.</li>
 			<li>You can import save from base game and import Turbo save into base game, but some time related things will behave wonky until you portal.</li>
 			<li>PlayFab login is disabled.</li>
