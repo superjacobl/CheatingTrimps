@@ -3914,9 +3914,9 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 			level *= 1.35;
 			if (level < 0) level = 0;
 			//amt += baseAmt * Math.pow(1.23, Math.sqrt(level));
-			amt += baseAmt * Math.pow(1.26, Math.pow(level, 0.65))
+			amt += baseAmt * Math.pow(1.27, Math.pow(level, 0.67))
 			amt += baseAmt * level;
-			amt *= 3; // new
+			amt *= 10; // new
 		}
 		else if (what == "gems"){
 			level = level - 400;
