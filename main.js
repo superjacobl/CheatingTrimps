@@ -3909,16 +3909,24 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 		}
 	}
 	else{
-		if (what == "helium") level = Math.round((level - 1900) / 100);
+		if (what == "helium") {
+			level = Math.round((level - 1900) / 100);
+			level *= 1.35;
+			if (level < 0) level = 0;
+			//amt += baseAmt * Math.pow(1.23, Math.sqrt(level));
+			amt += baseAmt * Math.pow(1.26, Math.pow(level, 0.65))
+			amt += baseAmt * level;
+			amt *= 3; // new
+		}
 		else if (what == "gems"){
 			level = level - 400;
 			//Adding 3 seconds worth of dragimp production on top of normal gem resource gains
 			amt = game.jobs.Dragimp.modifier * 3 * baseAmt;
+			level *= 1.35;
+			if (level < 0) level = 0;
+			amt += baseAmt * Math.pow(1.23, Math.sqrt(level));
+			amt += baseAmt * level;
 		}
-		level *= 1.35;
-		if (level < 0) level = 0;
-		amt += baseAmt * Math.pow(1.23, Math.sqrt(level));
-		amt += baseAmt * level;
 	}
 	//Scale 20% across the Zone, depending on cell number
 	if (what != "helium" && what != "fragments"){
