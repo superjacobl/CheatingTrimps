@@ -3469,10 +3469,10 @@ function getLootBd(what) {
 			else if (game.global.world < mutations.Corruption.start(true)) baseAmt = 5;
 			else baseAmt = 10;
 			//var amt = baseAmt * Math.pow(1.23, Math.sqrt(level));
-			var amt = baseAmt * Math.pow(1.26, Math.pow(level, 0.65));
+			var amt = baseAmt * Math.pow(1.27, Math.pow(level, 0.67));
 			amt += baseAmt * level;
 			amt /= baseAmt;
-			amt *= 3; // new
+			amt *= 10; // new
 			currentCalc = amt;
 			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			if (baseAmt >= 5){
